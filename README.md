@@ -13,7 +13,7 @@ A concise Portfolio Laravel project with instructions for setup.
 2. **Navigate to the project directory:**
 
     ```bash
-    cd Anguren
+    cd AngurenPortfolio
     ```
 
 3. **Install PHP dependencies:**
