@@ -21,14 +21,15 @@ Route::get('/', [PortfolioController::class, 'index'])->name('home');
 
 //Route For Login
 Route::match(['get', 'post'], '/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
+Route::middleware(['auth'])->group(function () {
+    // Logout Route
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route For Edit Page //
-Route::get('/edit', [PortfolioController::class, 'edit'])->name('edit')->middleware('auth');
-
-Route::post('/updateHeader', [PortfolioController::class, 'updateHeader'])->name('update.header');
-Route::post('/updateAbout', [PortfolioController::class, 'updateAbout'])->name('update.about');
-
-Route::post('/addSkill', [PortfolioController::class, 'addSkill'])->name('add.skill');
-Route::get('deleteSkill/{id}', [PortfolioController::class, 'deleteSkill'])->name('delete.skill');
+    // Edit Page Routes
+    Route::get('/edit', [PortfolioController::class, 'edit'])->name('edit');
+    Route::post('/updateHeader', [PortfolioController::class, 'updateHeader'])->name('update.header');
+    Route::post('/updateAbout', [PortfolioController::class, 'updateAbout'])->name('update.about');
+    Route::post('/addSkill', [PortfolioController::class, 'addSkill'])->name('add.skill');
+    Route::get('deleteSkill/{id}', [PortfolioController::class, 'deleteSkill'])->name('delete.skill');
+});
