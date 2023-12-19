@@ -55,7 +55,7 @@
     align-items: center;
     justify-content: flex-start;
     gap: 5rem;
-    background-color: var(--color-dark);
+    background-color: var(--color-black);
   }
   nav {
     width: 100%;
