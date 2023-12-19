@@ -13,7 +13,6 @@
     @if (session()->has('success'))
       <div class="success" id="successMessage">
           <p>{{ session('success') }}</p>
-          <p id="close" title="close">+</p>
       </div>
     @endif
 
@@ -73,7 +72,7 @@
     <h1 class="heading">About Me</h1>
     <div class="container about-container">
       <div class="about-left">
-        <img src="{{ asset('img/about-pic.png') }}" alt="">
+        <img src="{{ $user->about_image }}" alt="">
       </div>
       <div class="about-right">
         <div class="basic-edu">
